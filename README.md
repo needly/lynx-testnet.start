@@ -36,12 +36,12 @@ git submodule update --init --recursive
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
-mkdir /opt/bin
-mkdir /opt/bin/v1.8.9
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.9/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.9/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.9/
-ln -sf /opt/bin/v1.8.9 /opt/bin/bin
+mkdir /opt/LynxTestNet/bin
+mkdir /opt/LynxTestNet/bin/v1.8.9
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/LynxTestNet/bin/v1.8.9/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/LynxTestNet/bin/v1.8.9/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/LynxTestNet/bin/v1.8.9/
+ln -sf /opt/bin/v1.8.9 /opt/LynxTestNet/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -103,7 +103,6 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 # 3. Install Lynx Testnet node [manual]  
     
 ```
-    mkdir /opt/LynxTestnet
     cd /opt/LynxTestnet
     git clone https://github.com/needly/lynx-testnet.start.git ./
 
@@ -114,7 +113,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 - Choose your producer name (12 symbols length only,  a-z 1-5 alowed only) and create own EOS key pair  
   you can create key pair using cleos command  
   `./cleos.sh create key`  
-   or using Scatter or <a target="_blank" href="https://nadejde.github.io/eos-token-sale/">here</a>. 
+   or using Lynx Wallet or <a target="_blank" href="https://www.lynxwallet.io/">here</a>. 
 
 
 - If non BP node: use the same config, just comment out rows with producer-name and signature-provider  
