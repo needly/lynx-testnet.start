@@ -10,7 +10,7 @@
 ###############################################################################
 
 
-NODEOSBINDIR="/opt/LynxTestNet/bin/bin"
+NODEOSBINDIR="/opt/bin/bin"
 DATADIR="/opt/LynxTestNet/lynxNode"
 
 $DATADIR/stop.sh

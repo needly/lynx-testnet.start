@@ -1,9 +1,9 @@
 # Welcome to the LYNX Testnet [manual node installation]
 
 Chain ID: f11d5128e07177823924a07df63bf59fbd07e52c44bc77d16acc1c6e9d22d37b  
-Based on tag: v1.8.6  
+Based on tag: v1.8.10  
 
-Please join out Lynx Testnet testnet <a target="_blank" href="https://t.me/">Telegram channel</a>  
+Please join out Lynx Testnet <a target="_blank" href="https://t.me/">Telegram channel</a>  
 Network Monitor: https://monitor.testnet.lynxchain.io/  
 
 
@@ -26,7 +26,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.8.9  
+git checkout v1.8.10  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -y
@@ -36,12 +36,12 @@ git submodule update --init --recursive
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
-mkdir /opt/LynxTestNet/bin
-mkdir /opt/LynxTestNet/bin/v1.8.9
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/LynxTestNet/bin/v1.8.9/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/LynxTestNet/bin/v1.8.9/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/LynxTestNet/bin/v1.8.9/
-ln -sf /opt/bin/v1.8.9 /opt/LynxTestNet/bin/bin
+mkdir /opt/bin
+mkdir /opt/bin/v1.8.10
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.10/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.10/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.10/
+ln -sf /opt/bin/v1.8.10 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -50,22 +50,22 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v1.8.9   
-For example, for ubuntu 18.04 you need to download deb eosio_1.8.9-ubuntu-18.04_amd64.deb              
+https://github.com/EOSIO/eos/releases/tag/v1.8.10   
+For example, for ubuntu 18.04 you need to download deb eosio_1.8.10-1-ubuntu-18.04_amd64.deb              
 To install it you can use apt:  
 ```
-apt install ./eosio_1.8.9-ubuntu-18.04_amd64.deb   
+apt install ./eosio_1.8.10-1-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.9  
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.10  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v1.8.9
- cp /usr/opt/eosio/v1.8.9/bin/nodeos /opt/bin/v1.8.9/
- cp /usr/opt/eosio/v1.8.9/bin/cleos /opt/bin/v1.8.9/
- cp /usr/opt/eosio/v1.8.9/bin/keosd /opt/bin/v1.8.9/
- ln -sf /usr/opt/eosio/v1.8.9/bin /opt/bin/bin
+ mkdir /opt/bin/v1.8.10
+ cp /usr/opt/eosio/v1.8.10/bin/nodeos /opt/bin/v1.8.10/
+ cp /usr/opt/eosio/v1.8.10/bin/cleos /opt/bin/v1.8.10/
+ cp /usr/opt/eosio/v1.8.10/bin/keosd /opt/bin/v1.8.10/
+ ln -sf /opt/bin/v1.8.10/ /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -80,19 +80,19 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.8.9   
+git checkout v1.8.10   
 git submodule update --init --recursive   
 
 
-./scripts/eosio_build.sh -P -y
-./scripts/eosio_uninstall.sh
-./scripts/eosio_install.sh
+./scripts/eosio_uninstall.sh    
+./scripts/eosio_build.sh -P -y    
 
-mkdir /opt/bin/v1.8.9
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.9/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.9/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.9/
-ln -sf /opt/bin/v1.8.9 /opt/bin/bin
+
+mkdir /opt/bin/v1.8.10
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.10/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.10/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.10/
+ln -sf /opt/bin/v1.8.10 /opt/bin/bin
 ```  
 
 # 2.2 Update binaries  
@@ -103,6 +103,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 # 3. Install Lynx Testnet node [manual]  
     
 ```
+    mkdir /opt/LynxTestnet
     cd /opt/LynxTestnet
     git clone https://github.com/needly/lynx-testnet.start.git ./
 
@@ -110,11 +111,11 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 
 - In case you use a different data-dir folders -> edit all paths in files cleos.sh, start.sh, stop.sh, config.ini, Wallet/start_wallet.sh, Wallet/stop_wallet.sh  
 
-- Choose your producer name (12 symbols length only,  a-z 1-5 alowed only) and create own EOS key pair  
-  you can create key pair using cleos command  
+- to create an account on lynx test net go to <a target="_blank" href="https://monitor.testnet.lynxchain.io/">monitor</a>  
+  Click <a target="_blank" href="https://monitor.testnet.lynxchain.io/#createKey">“Create Keypair”</a> button located at the top left of the page, copy and save both public and private key.
+  also you can create key pair using cleos command  
   `./cleos.sh create key`  
-   or using Lynx Wallet or <a target="_blank" href="https://www.lynxwallet.io/">here</a>. 
-
+  next Click <a target="_blank" href="https://monitor.testnet.lynxchain.io/#account">“Create Account”</a> at the top left of the page, enter an account name, submit your previously saved public key in both Owner and Active Public Key field, complete the captcha, and hit create. 
 
 - If non BP node: use the same config, just comment out rows with producer-name and signature-provider  
   
@@ -127,9 +128,15 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
   - replace p2p-peer-address list with fresh generated on monitor site: https://monitor.testnet.lynxchain.io/#p2p  
   - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
     chain-state-db-size-mb = 16384  
-  
-- Open TCP Ports (8888, 9876) on your firewall/router  
 
+- To register as Block Producer you should go to the <a target="_blank" href="https://testnet.lynxchain.io:499/">Permission Portal</a> login and request permission to regproduse  
+  when you got this permission then run command    
+  ```
+  ./cleos.sh system regproducer YOU_ACCOUNT PUBKEY "URL" LOCATION -p YOU_ACCOUNT
+  ```
+  
+
+- Open TCP Ports (8888, 9876) on your firewall/router  
 
 - Start wallet, run  
 ```
@@ -166,13 +173,12 @@ Enter your private key
 
 
 
-- Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="http://jungle2.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
+Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="https://testnet.lynxchain.io/v1/chain/get_info" target="_blank">Example</a>)  
 
-
-- ?? If you would like to run a BP node you need register your node at Lynx Testnet monitor  
-    http://monitor.jungletestnet.io/#register  
-    * In registartion form - PIN is your password to node information updates  
-    After registration is complete - personal intallation script will be created for you. Skip this step in case of manual installation.  
+#### Run command below to get Contract Permissions    
+  ```
+  cleos -u https://testnet.lynxchain.io push action eosio.lynx dappreg '["youraccount"]' -p youraccount
+  ```
 
 ==============================================================================================  
 
@@ -215,60 +221,48 @@ Enter your private key
    cd /opt/LynxTestnet/lynxNode
    ./start.sh --snapshot /opt/LynxTestnet/lynxNode/snapshots/latest-snapshot.bin
    ```
- ---
+
 
 # 5. Usefull Information  
   
-# Jungle 2.0 Faucet - get free EOS Jungle tokens:  
+# Lynx Faucet - get free LNX tokens:  
   https://monitor.testnet.lynxchain.io/#faucet  
 
 # Other Tools/Examples  
-- In scripts folder you can find scripts examples: how to register bp, stake, vote, claimrewards, etc  
-- Vote using monitor (prepare Cleos command or use scatter)  
-
-- Create account:  
-  https://monitor.testnet.lynxchain.io/#account  
-
 
 - Cleos commands:  
 
-Send EOS
+Send LNX
 ```
-./cleos.sh transfer <your account> <receiver account> "1.0000 EOS" "test memo text"
+./cleos.sh transfer <your account> <receiver account> "1.0000 LNX" "test memo text"
 ```
 Get Balance  
 ```
 ./cleos.sh get currency balance eosio.token <account name>
 ```
-Create account  
-```
-./cleos.sh system newaccount --stake-net "10.0000 EOS" --stake-cpu "10.0000 EOS" --buy-ram-bytes 4096 <your accountr> <new account> <pkey1> <pkey2>
-```  
-List registered producers (-l <limit>)  
+
+List registered producers (-l \<limit\>)  
 ```
 ./cleos.sh get table eosio eosio producers -l 100  
 ```
-List your last action (use -h to get help, do not work now, works with history node only)  
-```
-./cleos.sh get actions <account name>
-```
-  
+
 List staked/delegated  
 ```
 ./cleos.sh system listbw <account>   
 ```
  
-# Lynx TestNet History nodes
-**Hyperion History**  
-https://junglehistory.cryptolions.io/v2/docs/index.html    
-https://jungle.hyperion.eosrio.io/v2/docs/index.html  
-https://jungle.eosusa.news/v2/docs/    
-https://api.jungle.hyperion.greeneosio.com/v2/docs/    
+# 6. Usefull Links
 
-**State History endpoint**  
+**Hyperion History**  
+https://history.testnet.lynxchain.io/
+https://tst.lynxsweden.org/v2/docs    
+http://test.lynx.eosusa.news/v2/docs    
 
 **Block Explorers**   
 https://lynx-test.bloks.io/    
+
+**Permissions Portal**    
+https://testnet.lynxchain.io:499/    
 
 --------------  
 
@@ -280,5 +274,3 @@ https://lynx-test.bloks.io/
   * [Snapshots](http://backup.cryptolions.io/LynxTestnet/snapshots/)
 
 --------------
-
-by: <a target="_blank" href="http://CryptoLions.io">CryptoLions.io</a>  

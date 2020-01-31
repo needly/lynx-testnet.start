@@ -10,7 +10,7 @@
 #
 ###############################################################################
 
-NODEOSBINDIR="/opt/LynxTestNet/bin/bin"
+NODEOSBINDIR="/opt/bin/bin"
 
 WALLETHOST="127.0.0.1"
 NODEHOST="127.0.0.1"
