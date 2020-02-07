@@ -1,7 +1,7 @@
 # Welcome to the LYNX Testnet [manual node installation]
 
 Chain ID: f11d5128e07177823924a07df63bf59fbd07e52c44bc77d16acc1c6e9d22d37b  
-Based on tag: v1.8.10  
+Based on tag: v1.8.11  
 
 Please join out Lynx Testnet <a target="_blank" href="https://t.me/">Telegram channel</a>  
 Network Monitor: https://monitor.testnet.lynxchain.io/  
@@ -26,7 +26,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.8.10  
+git checkout v1.8.11  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -y
@@ -37,11 +37,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v1.8.10
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.10/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.10/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.10/
-ln -sf /opt/bin/v1.8.10 /opt/bin/bin
+mkdir /opt/bin/v1.8.11
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.11/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.11/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.11/
+ln -sf /opt/bin/v1.8.11 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,21 +51,21 @@ So /opt/bin/bin will point to latest binaries
 
 A. Download the latest version of EOSIO for your OS from:  
 https://github.com/EOSIO/eos/releases/tag/v1.8.10   
-For example, for ubuntu 18.04 you need to download deb eosio_1.8.10-1-ubuntu-18.04_amd64.deb              
+For example, for ubuntu 18.04 you need to download deb eosio_1.8.11-1-ubuntu-18.04_amd64.deb              
 To install it you can use apt:  
 ```
-apt install ./eosio_1.8.10-1-ubuntu-18.04_amd64.deb   
+apt install ./eosio_1.8.11-1-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.10  
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.11  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v1.8.10
- cp /usr/opt/eosio/v1.8.10/bin/nodeos /opt/bin/v1.8.10/
- cp /usr/opt/eosio/v1.8.10/bin/cleos /opt/bin/v1.8.10/
- cp /usr/opt/eosio/v1.8.10/bin/keosd /opt/bin/v1.8.10/
- ln -sf /opt/bin/v1.8.10/ /opt/bin/bin
+ mkdir /opt/bin/v1.8.11
+ cp /usr/opt/eosio/v1.8.11/bin/nodeos /opt/bin/v1.8.11/
+ cp /usr/opt/eosio/v1.8.11/bin/cleos /opt/bin/v1.8.11/
+ cp /usr/opt/eosio/v1.8.11/bin/keosd /opt/bin/v1.8.11/
+ ln -sf /opt/bin/v1.8.11/ /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -80,7 +80,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.8.10   
+git checkout v1.8.11   
 git submodule update --init --recursive   
 
 
@@ -88,11 +88,11 @@ git submodule update --init --recursive
 ./scripts/eosio_build.sh -P -y    
 
 
-mkdir /opt/bin/v1.8.10
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.10/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.10/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.10/
-ln -sf /opt/bin/v1.8.10 /opt/bin/bin
+mkdir /opt/bin/v1.8.11
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.11/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.11/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.11/
+ln -sf /opt/bin/v1.8.11 /opt/bin/bin
 ```  
 
 # 2.2 Update binaries  
